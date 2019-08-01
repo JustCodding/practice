@@ -24,7 +24,7 @@ class Mydata{
 
 public class VolatileDemo {
     public static void main(String[] args) {
-        Mydata mydata = new Mydata();
+        final Mydata mydata = new Mydata();
         for (int i = 0; i < 20; i++) {
             new Thread(String.valueOf(i)){
                 @Override
@@ -48,7 +48,7 @@ public class VolatileDemo {
 
     //volatile 保证可见性
     public static void seeok(){
-        Mydata mydata = new Mydata();
+        final Mydata mydata = new Mydata();
         new Thread("AA"){
             @Override
             public void run() {

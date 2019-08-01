@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ReadWriteLockDemo {
     public static void main(String[] args) {
-        MyCahce cahce = new MyCahce();
+        final MyCahce cahce = new MyCahce();
         for (int i = 0; i < 5; i++) {
             final int num = i;
             new Thread(i+""){

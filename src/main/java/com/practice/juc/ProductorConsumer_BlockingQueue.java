@@ -7,8 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProductorConsumer_BlockingQueue {
     public static void main(String[] args) {
-        BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<String>(10);
-        Myresource myresource = new Myresource(blockingQueue);
+         BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<String>(10);
+        final Myresource myresource = new Myresource(blockingQueue);
         new Thread("productor"){
             @Override
             public void run() {

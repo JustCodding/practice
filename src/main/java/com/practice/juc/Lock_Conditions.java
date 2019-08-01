@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Lock_Conditions {
     public static void main(String[] args) {
-           ShareData shareData = new ShareData();
+           final ShareData shareData = new ShareData();
            new Thread("A"){
                @Override
                public void run() {

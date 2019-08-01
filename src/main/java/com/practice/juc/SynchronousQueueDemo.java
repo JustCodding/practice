@@ -5,7 +5,7 @@ import java.util.concurrent.SynchronousQueue;
 
 public class SynchronousQueueDemo {
     public static void main(String[] args) {
-        BlockingQueue<String>  queue = new SynchronousQueue<>();
+        final BlockingQueue<String>  queue = new SynchronousQueue<>();
         new Thread("AAA"){
             @Override
             public void run() {

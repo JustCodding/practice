@@ -30,7 +30,7 @@ public class SpinLock {
 
     public static void main(String[] args) {
 
-        SpinLock spinLock = new SpinLock();
+        final SpinLock spinLock = new SpinLock();
         new Thread("AA"){
             @Override
             public void run() {

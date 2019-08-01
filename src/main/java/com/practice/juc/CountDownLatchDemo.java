@@ -4,7 +4,7 @@ import java.util.concurrent.CountDownLatch;
 
 public class CountDownLatchDemo {
     public static void main(String[] args) throws Exception{
-        CountDownLatch countDownLatch = new CountDownLatch(6);
+        final CountDownLatch countDownLatch = new CountDownLatch(6);
         for (int i = 0; i < 6; i++) {
             new Thread(i+""){
                 @Override
