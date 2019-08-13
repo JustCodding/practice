@@ -3,9 +3,14 @@ package com.practice.container;
 import javafx.beans.binding.ObjectExpression;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
-public class MyArrayList {
+/*
+* 要支持增强for,必须实现Iterable接口，我们重写该接口的iterator方法
+* 此方法是返回迭代器*/
+public class MyArrayList implements Iterable{
     private Object[] elemetData;
     private int size;
     public MyArrayList(int initialCapacity){
@@ -99,6 +104,26 @@ public class MyArrayList {
         return true;
     }
 
+    @Override
+    public Iterator iterator() {
+        return new Iterator() {
+            private int cursor = -1;
+            @Override
+            public boolean hasNext() {
+                return cursor+1<size;
+            }
+
+            @Override
+            public Object next() {
+                return elemetData[++cursor];
+            }
+
+            @Override
+            public void remove() {
+                //这里未实现
+            }
+        };
+    }
 
     public static void main(String[] args) {
         MyArrayList list = new MyArrayList(3);
@@ -136,7 +161,16 @@ public class MyArrayList {
         for (int i = 0; i <list.size ; i++) {
             System.out.println(list.get(i));
         }
+        System.out.println("=======增强for遍历==========");
+        for (Object obj:list) {
+            System.out.println(obj);
+        }
 
+        System.out.println("=======迭代器遍历==========");
+        Iterator it = list.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
 
     }
 
